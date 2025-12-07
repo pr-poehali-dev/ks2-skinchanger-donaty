@@ -48,12 +48,30 @@ const Index = () => {
   ];
 
   const skins = [
-    { id: 1, name: 'AK-47 | Redline', rarity: 'Rare', category: 'Rifle' },
-    { id: 2, name: 'AWP | Dragon Lore', rarity: 'Legendary', category: 'Sniper' },
-    { id: 3, name: 'M4A4 | Howl', rarity: 'Epic', category: 'Rifle' },
-    { id: 4, name: 'Karambit | Fade', rarity: 'Legendary', category: 'Knife' },
-    { id: 5, name: 'Glock-18 | Fade', rarity: 'Epic', category: 'Pistol' },
-    { id: 6, name: 'Desert Eagle | Blaze', rarity: 'Rare', category: 'Pistol' }
+    { id: 1, name: 'AK-47 | Redline', rarity: 'Rare', category: 'Rifle', price: '2,500₽' },
+    { id: 2, name: 'AWP | Dragon Lore', rarity: 'Legendary', category: 'Sniper', price: '85,000₽' },
+    { id: 3, name: 'M4A4 | Howl', rarity: 'Epic', category: 'Rifle', price: '45,000₽' },
+    { id: 4, name: 'Karambit | Fade', rarity: 'Legendary', category: 'Knife', price: '125,000₽' },
+    { id: 5, name: 'Glock-18 | Fade', rarity: 'Epic', category: 'Pistol', price: '8,500₽' },
+    { id: 6, name: 'Desert Eagle | Blaze', rarity: 'Rare', category: 'Pistol', price: '3,200₽' },
+    { id: 7, name: 'AK-47 | Fire Serpent', rarity: 'Epic', category: 'Rifle', price: '35,000₽' },
+    { id: 8, name: 'M4A1-S | Hyper Beast', rarity: 'Rare', category: 'Rifle', price: '4,500₽' },
+    { id: 9, name: 'AWP | Asiimov', rarity: 'Rare', category: 'Sniper', price: '5,800₽' },
+    { id: 10, name: 'USP-S | Kill Confirmed', rarity: 'Epic', category: 'Pistol', price: '12,500₽' },
+    { id: 11, name: 'Butterfly Knife | Tiger Tooth', rarity: 'Legendary', category: 'Knife', price: '95,000₽' },
+    { id: 12, name: 'AK-47 | Neon Revolution', rarity: 'Rare', category: 'Rifle', price: '6,200₽' },
+    { id: 13, name: 'M4A4 | Neo-Noir', rarity: 'Rare', category: 'Rifle', price: '5,500₽' },
+    { id: 14, name: 'AWP | Hyper Beast', rarity: 'Rare', category: 'Sniper', price: '4,800₽' },
+    { id: 15, name: 'Desert Eagle | Golden Koi', rarity: 'Epic', category: 'Pistol', price: '9,200₽' },
+    { id: 16, name: 'Karambit | Doppler', rarity: 'Legendary', category: 'Knife', price: '110,000₽' },
+    { id: 17, name: 'Glock-18 | Water Elemental', rarity: 'Rare', category: 'Pistol', price: '2,800₽' },
+    { id: 18, name: 'M4A1-S | Golden Coil', rarity: 'Epic', category: 'Rifle', price: '15,000₽' },
+    { id: 19, name: 'P250 | Asiimov', rarity: 'Rare', category: 'Pistol', price: '3,500₽' },
+    { id: 20, name: 'Bayonet | Marble Fade', rarity: 'Legendary', category: 'Knife', price: '98,000₽' },
+    { id: 21, name: 'AK-47 | Vulcan', rarity: 'Rare', category: 'Rifle', price: '7,200₽' },
+    { id: 22, name: 'AWP | Lightning Strike', rarity: 'Epic', category: 'Sniper', price: '18,500₽' },
+    { id: 23, name: 'Five-SeveN | Monkey Business', rarity: 'Rare', category: 'Pistol', price: '3,100₽' },
+    { id: 24, name: 'M4A4 | Desolate Space', rarity: 'Epic', category: 'Rifle', price: '11,800₽' }
   ];
 
   const navItems = [
@@ -260,16 +278,137 @@ const Index = () => {
                           </div>
                           <CardHeader>
                             <CardTitle className="text-lg">{skin.name}</CardTitle>
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 mb-2">
                               <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
                               <Badge variant="outline">{skin.category}</Badge>
                             </div>
+                            <p className="text-xl font-bold text-primary">{skin.price}</p>
                           </CardHeader>
                           <CardContent>
-                            <Button className="w-full" variant="outline">
-                              <Icon name="Eye" size={16} />
-                              Посмотреть
-                            </Button>
+                            <div className="flex gap-2">
+                              <Button className="flex-1" variant="outline">
+                                <Icon name="Eye" size={16} />
+                              </Button>
+                              <Button className="flex-1" variant="default">
+                                <Icon name="ShoppingCart" size={16} />
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="rifle" className="mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {skins.filter(s => s.category === 'Rifle').map((skin) => (
+                        <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
+                          <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
+                            <Icon name="Image" size={64} className="text-muted-foreground" />
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-lg">{skin.name}</CardTitle>
+                            <div className="flex gap-2 mb-2">
+                              <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
+                              <Badge variant="outline">{skin.category}</Badge>
+                            </div>
+                            <p className="text-xl font-bold text-primary">{skin.price}</p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="flex gap-2">
+                              <Button className="flex-1" variant="outline">
+                                <Icon name="Eye" size={16} />
+                              </Button>
+                              <Button className="flex-1" variant="default">
+                                <Icon name="ShoppingCart" size={16} />
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="pistol" className="mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {skins.filter(s => s.category === 'Pistol').map((skin) => (
+                        <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
+                          <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
+                            <Icon name="Image" size={64} className="text-muted-foreground" />
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-lg">{skin.name}</CardTitle>
+                            <div className="flex gap-2 mb-2">
+                              <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
+                              <Badge variant="outline">{skin.category}</Badge>
+                            </div>
+                            <p className="text-xl font-bold text-primary">{skin.price}</p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="flex gap-2">
+                              <Button className="flex-1" variant="outline">
+                                <Icon name="Eye" size={16} />
+                              </Button>
+                              <Button className="flex-1" variant="default">
+                                <Icon name="ShoppingCart" size={16} />
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="knife" className="mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {skins.filter(s => s.category === 'Knife').map((skin) => (
+                        <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
+                          <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
+                            <Icon name="Image" size={64} className="text-muted-foreground" />
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-lg">{skin.name}</CardTitle>
+                            <div className="flex gap-2 mb-2">
+                              <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
+                              <Badge variant="outline">{skin.category}</Badge>
+                            </div>
+                            <p className="text-xl font-bold text-primary">{skin.price}</p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="flex gap-2">
+                              <Button className="flex-1" variant="outline">
+                                <Icon name="Eye" size={16} />
+                              </Button>
+                              <Button className="flex-1" variant="default">
+                                <Icon name="ShoppingCart" size={16} />
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="sniper" className="mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {skins.filter(s => s.category === 'Sniper').map((skin) => (
+                        <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
+                          <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
+                            <Icon name="Image" size={64} className="text-muted-foreground" />
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-lg">{skin.name}</CardTitle>
+                            <div className="flex gap-2 mb-2">
+                              <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
+                              <Badge variant="outline">{skin.category}</Badge>
+                            </div>
+                            <p className="text-xl font-bold text-primary">{skin.price}</p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="flex gap-2">
+                              <Button className="flex-1" variant="outline">
+                                <Icon name="Eye" size={16} />
+                              </Button>
+                              <Button className="flex-1" variant="default">
+                                <Icon name="ShoppingCart" size={16} />
+                              </Button>
+                            </div>
                           </CardContent>
                         </Card>
                       ))}
