@@ -49,30 +49,42 @@ const MainContent = ({ activeTab }: MainContentProps) => {
   ];
 
   const skins = [
-    { id: 1, name: 'AK-47 | Redline', rarity: 'Rare', category: 'Rifle', price: '2,500₽' },
-    { id: 2, name: 'AWP | Dragon Lore', rarity: 'Legendary', category: 'Sniper', price: '85,000₽' },
-    { id: 3, name: 'M4A4 | Howl', rarity: 'Epic', category: 'Rifle', price: '45,000₽' },
-    { id: 4, name: 'Karambit | Fade', rarity: 'Legendary', category: 'Knife', price: '125,000₽' },
-    { id: 5, name: 'Glock-18 | Fade', rarity: 'Epic', category: 'Pistol', price: '8,500₽' },
-    { id: 6, name: 'Desert Eagle | Blaze', rarity: 'Rare', category: 'Pistol', price: '3,200₽' },
-    { id: 7, name: 'AK-47 | Fire Serpent', rarity: 'Epic', category: 'Rifle', price: '35,000₽' },
-    { id: 8, name: 'M4A1-S | Hyper Beast', rarity: 'Rare', category: 'Rifle', price: '4,500₽' },
-    { id: 9, name: 'AWP | Asiimov', rarity: 'Rare', category: 'Sniper', price: '5,800₽' },
-    { id: 10, name: 'USP-S | Kill Confirmed', rarity: 'Epic', category: 'Pistol', price: '12,500₽' },
-    { id: 11, name: 'Butterfly Knife | Tiger Tooth', rarity: 'Legendary', category: 'Knife', price: '95,000₽' },
-    { id: 12, name: 'AK-47 | Neon Revolution', rarity: 'Rare', category: 'Rifle', price: '6,200₽' },
-    { id: 13, name: 'M4A4 | Neo-Noir', rarity: 'Rare', category: 'Rifle', price: '5,500₽' },
-    { id: 14, name: 'AWP | Hyper Beast', rarity: 'Rare', category: 'Sniper', price: '4,800₽' },
-    { id: 15, name: 'Desert Eagle | Golden Koi', rarity: 'Epic', category: 'Pistol', price: '9,200₽' },
-    { id: 16, name: 'Karambit | Doppler', rarity: 'Legendary', category: 'Knife', price: '110,000₽' },
-    { id: 17, name: 'Glock-18 | Water Elemental', rarity: 'Rare', category: 'Pistol', price: '2,800₽' },
-    { id: 18, name: 'M4A1-S | Golden Coil', rarity: 'Epic', category: 'Rifle', price: '15,000₽' },
-    { id: 19, name: 'P250 | Asiimov', rarity: 'Rare', category: 'Pistol', price: '3,500₽' },
-    { id: 20, name: 'Bayonet | Marble Fade', rarity: 'Legendary', category: 'Knife', price: '98,000₽' },
-    { id: 21, name: 'AK-47 | Vulcan', rarity: 'Rare', category: 'Rifle', price: '7,200₽' },
-    { id: 22, name: 'AWP | Lightning Strike', rarity: 'Epic', category: 'Sniper', price: '18,500₽' },
-    { id: 23, name: 'Five-SeveN | Monkey Business', rarity: 'Rare', category: 'Pistol', price: '3,100₽' },
-    { id: 24, name: 'M4A4 | Desolate Space', rarity: 'Epic', category: 'Rifle', price: '11,800₽' }
+    { id: 1, name: 'AK-47 | Redline', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5lpKKqPrxN7LEmyVQ7MEpiLuSrYmnjQO3-UdsZGHxJoTGIw86MFzVqFm9xu_qhMW57ZTKmCQ3vCQh4yzUzQv330_LaS5dKA/360fx360f' },
+    { id: 2, name: 'AWP | Dragon Lore', rarity: 'Legendary', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7c2G0AuMYl37_DoIqn2FK2qRFvYzzzJIHDcFdvNFrY-wC5xurxxcjrRELzkQ/360fx360f' },
+    { id: 3, name: 'M4A4 | Howl', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alDLjQhH9U5Pp9g-7J4cL3i1ew-RI6Nj-lcYCRI1U-ZF_Q_FTswO3p18Si_MOeZt-J_Q8/360fx360f' },
+    { id: 4, name: 'Karambit | Fade', rarity: 'Legendary', category: 'Knife', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlY20k_jkI7fUhFRB4MZwnO_E_Jn4xlWx-kA6YDzxcY-TcQVrYQzS_le4xezxxcjr-fYx-EE/360fx360f' },
+    { id: 5, name: 'Glock-18 | Fade', rarity: 'Epic', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-KgPb4J4Tdn2xZ_Ish2rqVrI-l0VLnrhJoY2rwJtTEd1Q3Y1HR-lC8yejxxcjrRKLyp5w/360fx360f' },
+    { id: 6, name: 'Desert Eagle | Blaze', rarity: 'Rare', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PDdTjlH_9mkgIWKkPvLPr7Vn35cppQk2r6Y8NmtiVKw-kNrYzv3ItDEdlI6ZVvX_Vm_w-fxxcjrQ8-CNeY/360fx360f' },
+    { id: 7, name: 'AK-47 | Fire Serpent', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV08-jhYWZnvnxDLfYkWNFppMp27mV9Imn21HnqEE4ajzxLdLGdlA7Zg3V8lC_wr-xxcjr6RoTLhM/360fx360f' },
+    { id: 8, name: 'M4A1-S | Hyper Beast', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alIITBhGJf7cRnk9bN_Iv9nBrh_RVtNmz2cNTAcgI-YVyFqFfvx-rr0Z7qtJTXiSw0cW5W9VA/360fx360f' },
+    { id: 9, name: 'AWP | Asiimov', rarity: 'Rare', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7c2DJS5MRjj-zF_Jn4xgCwqkY4NzyldoTGIw87Mg7VqQe4ye7xxcjrU7D7ht8/360fx360f' },
+    { id: 10, name: 'USP-S | Kill Confirmed', rarity: 'Epic', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09-jq5WYh8jiPLfFl2xU18h0juDU-MKi2ALi80BlZzv7JYGUIVNvZAvY_FW3kr-6jJa9v5_My3U2uykrt2GdwUKQxfqcHg/360fx360f' },
+    { id: 11, name: 'Butterfly Knife | Tiger Tooth', rarity: 'Legendary', category: 'Knife', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqPP7I6rdl2JU18lwmO7Eu4qhigKy-RVtNjyiI9WWJlU2ZV3W-gC9xr2915-66M7OmCAwpGB8soB-Y1sc/360fx360f' },
+    { id: 12, name: 'AK-47 | Neon Revolution', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5lpKKqPrxN7LEm1Rd6dd2j6eQ9N2t2wK3-ENuam3yJIKQdVQ5N1rT-AS5k-q5hce8vM_Nn3Nm7T5iuyh7R-rQxw/360fx360f' },
+    { id: 13, name: 'M4A4 | Neo-Noir', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW09izh4-HluPxDKjBl2hU18hwmO7Eu4ih3wew-ERuam77JNLAcwU2Y1qD_AS8lOfpjZa0v8vLzCZlpGB8smD7G5Ut/360fx360f' },
+    { id: 14, name: 'AWP | Hyper Beast', rarity: 'Rare', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7cqWdQ-sJ0teXI8oThxgHiqkdkMT_2IYTEcQJqYQrY_we_xO6-hcC_vJjLmnRmsiNw4yzfzBS1hgYMMLJ-G6E7ig/360fx360f' },
+    { id: 15, name: 'Desert Eagle | Golden Koi', rarity: 'Epic', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PDdTjlH_9mkgIWKkPvLPr7Vn35c18lwmO7Eu9yliwXkrRFtNz37dtLEdVc7ZF-EqAe6366x0uZ3kYk3/360fx360f' },
+    { id: 16, name: 'Karambit | Doppler', rarity: 'Legendary', category: 'Knife', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlY20jfL2IbrummJW4NE_0r3Hp4ij2wexqkduZ2r1I9STdwVrZgvZ-FTql-_nhJ_p7p6byGwj5HcIo_6LQw/360fx360f' },
+    { id: 17, name: 'Glock-18 | Water Elemental', rarity: 'Rare', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-YgfjxNrfVk1Rd4cJ5nqeQp4-migHmqkJsZm77I4-WcQE7YQnYqAS8w-q-hsW-v5jIn3RqpGB8sn7Z2-WH/360fx360f' },
+    { id: 18, name: 'M4A1-S | Golden Coil', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uOxh7-Gw_alDLbUlWNF18lwmO7Eu9yliwXkrRFtNzihLdKTIwVqNQnX_Fm9k-Tr08C87pqYyXA3vSkq4HjYlBC2hRwYbbI_gO3JUvfVb_tD/360fx360f' },
+    { id: 19, name: 'P250 | Asiimov', rarity: 'Rare', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopujwezhjxszYI2gS09-5gZKKgPLLMrfFqWdQ-sJ0teXI8oThxlXg-kRrZW6hd9fGdFA9Z1rY-gW9yOq5hcCi_MOe5zWqq-E/360fx360f' },
+    { id: 20, name: 'Bayonet | Marble Fade', rarity: 'Legendary', category: 'Knife', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4mCmf7zO6_ummJW4NE_2r2Qo9_ziwTlqBJuNmvxctDBcQM_YQrY_gC6wL-6h8fptJ7KySA1uCJ0s_6BQA/360fx360f' },
+    { id: 21, name: 'AK-47 | Vulcan', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5gY6Kh8jiIYTZk2pH8Yt13L3HoI733lDn_ERkYGnyLI-SdwE2NQnU-VftxL-6m9bi66J_b5bE/360fx360f' },
+    { id: 22, name: 'AWP | Lightning Strike', rarity: 'Epic', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0n_L2Jb7Um2Zu5Mx2gv2PotSg2gHm_0ZoY23wJYCTJgQ-YFHTqQe3wbjp15K1v56cyXczpGB8soIafLg7/360fx360f' },
+    { id: 23, name: 'Five-SeveN | Monkey Business', rarity: 'Rare', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposLOzLhRlxfbGTj5X09q_goWYkuHxPYTQgXtu5Mx2gv2Pot6l3Qbi_kY5ZG3xdtOde1Q4ZFyGrwW7l-zsh8C86czJnXozsyIn4iuLgVXp1lO9t5K3/360fx360f' },
+    { id: 24, name: 'M4A4 | Desolate Space', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW09-5gZKKmePLP7LWnn8f6ZN3j-3D-oP2iVXkqhU5a2HzJoXAewE9M13V_gC-w73qg8Ci_MOeZ8HXl6A/360fx360f' },
+    { id: 25, name: 'AK-47 | Phantom Disruptor', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV08-5gY6KhfjLP7LYhVRC6dBzj-rEpN2sjgWy-0FoYG6gJtecIAU_YFDSqFW8k-bq1JW6tcvOmCNivnNx4XfamxOwgAYMMf_1uSVSvg/360fx360f' },
+    { id: 26, name: 'M4A4 | Emperor', rarity: 'Legendary', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alDL3dl2JW7fp9g-7J4bP5iUazrl0_ZWH6JdKVIQZsaAyC_AS9wL_vgpG_tZ-bmHsyvnYjtH7UmUGpwUYbMKlH3YU/360fx360f' },
+    { id: 27, name: 'AWP | Chromatic Aberration', rarity: 'Epic', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7cqWdQ-sJ0teXI8oTht1i1uRQ5fT_1IYWSIQNoYQnY-1C9xr_r1JW1vZnKznVksiZ3t37cykCxgBwYZrFugKGbVRzLUfI2Rucw/360fx360f' },
+    { id: 28, name: 'Desert Eagle | Printstream', rarity: 'Epic', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PDdTjlH_9mkgIWKkPvLPr7Vn35cppR03ejAoYj32FDl_kFpY2r1d4DBdVQ_MFvR-1foxu3phZG8tZ_KzSBgviYn4XnUzhCw0AYMMLKJQVIFhg/360fx360f' },
+    { id: 29, name: 'M4A1-S | Printstream', rarity: 'Epic', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alDLbUkmJE5Ysg2uyTpd723wO3_xY9MW-hd9THcVU_aQrU_1C7wOvxxcjr89iDWLM/360fx360f' },
+    { id: 30, name: 'Talon Knife | Fade', rarity: 'Legendary', category: 'Knife', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfx_LLZTZS6eOlnI-Zg8j6OrzZglRd4cJ5nqfE89ik2wfl_UpkZW_3JYDBcgU5Nw6E_ATvkubxxcjrpwuGXSU/360fx360f' },
+    { id: 31, name: 'AWP | Neo-Noir', rarity: 'Epic', category: 'Sniper', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7cqWdQ-sJ0teXI8oTht1i1uRQ5fWGlcdSUIFI2MlqE-1TtyOrphZC56MycziZl6HQntH3ZmRO_gU0aabbJwvTPUUDeWPQgTbrYnGeFpA/360fx360f' },
+    { id: 32, name: 'Glock-18 | Gamma Doppler', rarity: 'Legendary', category: 'Pistol', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-cluX3IbjUhmVQ_sR0teTE8YXghQGxqRVlZz3zdY6XI1c-ZFrVqVjrxu291p68v53MnCZkvCYr5SqPyRO2n1gSOfOw1k8/360fx360f' },
+    { id: 33, name: 'M4A4 | The Coalition', rarity: 'Rare', category: 'Rifle', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alDLbQhX9Q18hwmO7Eu9302A3nrxdlZW_zI4PAI1A6YgmB-gS6kLjmhJS7u8nAmCNhuHQntX_ZmBC_gAYMMLIaX9bNZA/360fx360f' },
+    { id: 34, name: 'P90 | Asiimov', rarity: 'Rare', category: 'SMG', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FAR17PLfYQJD_9W7m5a0mvLwOq7cqWdQ-sJ0teXI8oThxgW2r0VsYj-gdtPGJgVsMFCB_gTslbzum9bi6_GEP3K4/360fx360f' },
+    { id: 35, name: 'MAC-10 | Neon Rider', rarity: 'Rare', category: 'SMG', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldf0Ob3fDxBvYyJhIGZmPj4Jr7ummJW4NE_0r3A896t2FLt_hVlamj3I4TCc1I4aFyDr1G7x-28h56-upSbyyQ2uCd0sP6MQA/360fx360f' },
+    { id: 36, name: 'UMP-45 | Crime Scene', rarity: 'Rare', category: 'SMG', price: 'Бесплатно', image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1Jf0Ob3ZDBSuImJkoyKmvj7DL7ChWNU7ctgpb_HoIin2gK1_RU5ZmGldY-cIwRsYl_Y-AW-l-q915S-tJTKyXZlvSEk7CuJgVXp1h2lQqFI/360fx360f' }
   ];
 
   const getRarityColor = (rarity: string) => {
@@ -86,8 +98,13 @@ const MainContent = ({ activeTab }: MainContentProps) => {
 
   const renderSkinCard = (skin: typeof skins[0]) => (
     <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
-      <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
-        <Icon name="Image" size={64} className="text-muted-foreground" />
+      <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center overflow-hidden">
+        <img 
+          src={skin.image} 
+          alt={skin.name}
+          className="w-full h-full object-contain p-4"
+          loading="lazy"
+        />
       </div>
       <CardHeader>
         <CardTitle className="text-lg">{skin.name}</CardTitle>
@@ -95,7 +112,7 @@ const MainContent = ({ activeTab }: MainContentProps) => {
           <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
           <Badge variant="outline">{skin.category}</Badge>
         </div>
-        <p className="text-xl font-bold text-primary">{skin.price}</p>
+        <p className="text-xl font-bold text-accent">{skin.price}</p>
       </CardHeader>
       <CardContent>
         <div className="flex gap-2">
@@ -103,7 +120,7 @@ const MainContent = ({ activeTab }: MainContentProps) => {
             <Icon name="Eye" size={16} />
           </Button>
           <Button className="flex-1" variant="default">
-            <Icon name="ShoppingCart" size={16} />
+            <Icon name="Download" size={16} />
           </Button>
         </div>
       </CardContent>
@@ -129,7 +146,7 @@ const MainContent = ({ activeTab }: MainContentProps) => {
                 <div className="bg-card/50 p-4 rounded-lg border border-border">
                   <div className="flex items-center gap-3 mb-2">
                     <Icon name="Package" size={24} className="text-secondary" />
-                    <span className="text-2xl font-bold">24</span>
+                    <span className="text-2xl font-bold">36</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Скинов в коллекции</p>
                 </div>
@@ -159,8 +176,13 @@ const MainContent = ({ activeTab }: MainContentProps) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {skins.slice(0, 3).map((skin) => (
                 <Card key={skin.id} className="overflow-hidden hover:scale-105 transition-all cursor-pointer hover:glow-blue">
-                  <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center">
-                    <Icon name="Image" size={64} className="text-muted-foreground" />
+                  <div className="h-48 bg-gradient-to-br from-muted to-background flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={skin.image} 
+                      alt={skin.name}
+                      className="w-full h-full object-contain p-4"
+                      loading="lazy"
+                    />
                   </div>
                   <CardHeader>
                     <CardTitle className="text-lg">{skin.name}</CardTitle>
@@ -168,6 +190,7 @@ const MainContent = ({ activeTab }: MainContentProps) => {
                       <Badge className={getRarityColor(skin.rarity)}>{skin.rarity}</Badge>
                       <Badge variant="outline">{skin.category}</Badge>
                     </div>
+                    <p className="text-xl font-bold text-accent mt-2">{skin.price}</p>
                   </CardHeader>
                 </Card>
               ))}
@@ -301,7 +324,7 @@ const MainContent = ({ activeTab }: MainContentProps) => {
                   <p className="text-sm text-muted-foreground">Win Rate</p>
                 </div>
                 <div className="text-center p-4 bg-card/50 rounded-lg">
-                  <p className="text-2xl font-bold text-primary">24</p>
+                  <p className="text-2xl font-bold text-primary">36</p>
                   <p className="text-sm text-muted-foreground">Скинов</p>
                 </div>
               </div>
