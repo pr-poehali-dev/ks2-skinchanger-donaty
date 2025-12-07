@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 
 interface MainContentProps {
@@ -9,6 +12,70 @@ interface MainContentProps {
 }
 
 const MainContent = ({ activeTab }: MainContentProps) => {
+  const { toast } = useToast();
+  const [steamLogin, setSteamLogin] = useState('');
+  const [depositAmount, setDepositAmount] = useState('');
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast({
+      title: "Скопировано!",
+      description: `${text} скопирован в буфер обмена`,
+      duration: 2000,
+    });
+  };
+
+  const servers = [
+    {
+      id: 1,
+      name: 'Public Server',
+      ip: '192.168.0.16',
+      port: '27015',
+      players: '24/32',
+      map: 'de_dust2',
+      status: 'online'
+    }
+  ];
+
+  const donateWeapons = [
+    {
+      id: 1,
+      weapon: 'AWP',
+      skin: 'UwU',
+      rarity: 'Legendary',
+      price: { rub: 1999, uah: 500 },
+      image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJD_9W7m5a0mvLwOq7c2G0AuMYl37_DoIqn2FK2qRFvYzzzJIHDcFdvNFrY-wC5xurxxcjrRELzkQ/360fx360f',
+      features: ['Уникальный дизайн UwU', 'Эксклюзивные эффекты', 'Приоритет в выборе оружия']
+    },
+    {
+      id: 2,
+      weapon: 'AK-47',
+      skin: 'Neko-chan',
+      rarity: 'Epic',
+      price: { rub: 1499, uah: 400 },
+      image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5lpKKqPrxN7LEmyVQ7MEpiLuSrYmnjQO3-UdsZGHxJoTGIw86MFzVqFm9xu_qhMW57ZTKmCQ3vCQh4yzUzQv330_LaS5dKA/360fx360f',
+      features: ['Дизайн Neko-chan', 'Анимации котиков', 'Звуковые эффекты']
+    },
+    {
+      id: 3,
+      weapon: 'M4A4',
+      skin: 'Kawaii Dream',
+      rarity: 'Epic',
+      price: { rub: 1299, uah: 350 },
+      image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alDLjQhH9U5Pp9g-7J4cL3i1ew-RI6Nj-lcYCRI1U-ZF_Q_FTswO3p18Si_MOeZt-J_Q8/360fx360f',
+      features: ['Розовый градиент', 'Блестки и звездочки', 'Kawaii стиль']
+    },
+    {
+      id: 4,
+      weapon: 'Desert Eagle',
+      skin: 'Anime Waifu',
+      rarity: 'Rare',
+      price: { rub: 799, uah: 200 },
+      image: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PDdTjlH_9mkgIWKkPvLPr7Vn35cppR03ejAoYj32FDl_kFpY23wd4DBdVQ_MFvR-1foxu3phZG8tZ_KzSBgviYn4XnUzhCw0AYMMLKJQVIFhg/360fx360f',
+      features: ['Аниме персонаж', 'Голографический эффект', 'Коллекционный айтем']
+    }
+  ];
+
   const donatePackages = [
     {
       id: 1,
@@ -408,6 +475,222 @@ const MainContent = ({ activeTab }: MainContentProps) => {
                 </div>
                 <Button variant="outline">Изменить</Button>
               </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {activeTab === 'servers' && (
+        <div className="space-y-6 animate-fade-in">
+          <div>
+            <h2 className="text-3xl font-heading font-bold mb-2">Игровые серверы</h2>
+            <p className="text-muted-foreground mb-6">
+              Подключайся к нашим серверам и играй с друзьями
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            {servers.map((server) => (
+              <Card key={server.id} className="overflow-hidden hover:glow-blue transition-all">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-3 h-3 rounded-full ${server.status === 'online' ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+                      <CardTitle className="text-2xl font-heading">{server.name}</CardTitle>
+                    </div>
+                    <Badge variant={server.status === 'online' ? 'default' : 'destructive'}>
+                      {server.status === 'online' ? 'Онлайн' : 'Оффлайн'}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div className="bg-muted/50 p-4 rounded-lg">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon name="Users" size={20} className="text-primary" />
+                        <span className="font-semibold">Игроки</span>
+                      </div>
+                      <p className="text-2xl font-bold text-primary">{server.players}</p>
+                    </div>
+                    <div className="bg-muted/50 p-4 rounded-lg">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon name="Map" size={20} className="text-secondary" />
+                        <span className="font-semibold">Карта</span>
+                      </div>
+                      <p className="text-2xl font-bold text-secondary">{server.map}</p>
+                    </div>
+                    <div className="bg-muted/50 p-4 rounded-lg">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon name="Network" size={20} className="text-accent" />
+                        <span className="font-semibold">IP адрес</span>
+                      </div>
+                      <p className="text-lg font-bold text-accent">{server.ip}:{server.port}</p>
+                    </div>
+                  </div>
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => copyToClipboard(`connect ${server.ip}:${server.port}`)}
+                  >
+                    <Icon name="Copy" size={20} className="mr-2" />
+                    Скопировать IP
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'weapons' && (
+        <div className="space-y-6 animate-fade-in">
+          <div>
+            <h2 className="text-3xl font-heading font-bold mb-2">Донатное оружие</h2>
+            <p className="text-muted-foreground mb-6">
+              Эксклюзивные скины оружия с уникальным дизайном
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {donateWeapons.map((weapon) => (
+              <Card
+                key={weapon.id}
+                className="overflow-hidden hover:scale-105 transition-all cursor-pointer glow-blue"
+              >
+                <div className="h-56 bg-gradient-to-br from-muted to-background flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={weapon.image} 
+                    alt={`${weapon.weapon} | ${weapon.skin}`}
+                    className="w-full h-full object-contain p-6"
+                    loading="lazy"
+                  />
+                </div>
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge className={
+                      weapon.rarity === 'Legendary' ? 'bg-accent text-accent-foreground' :
+                      weapon.rarity === 'Epic' ? 'bg-primary text-primary-foreground' :
+                      'bg-secondary text-secondary-foreground'
+                    }>
+                      {weapon.rarity}
+                    </Badge>
+                    <Badge variant="secondary" className="text-lg px-3 py-1">
+                      {weapon.price.rub}₽ / {weapon.price.uah}₴
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-2xl font-heading">
+                    {weapon.weapon} | {weapon.skin}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-4">
+                    {weapon.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button className="w-full" size="lg" variant="default">
+                    <Icon name="ShoppingCart" size={20} className="mr-2" />
+                    Купить оружие
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'settings' && (
+        <div className="animate-fade-in space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl font-heading flex items-center gap-2">
+                <Icon name="Settings" size={28} />
+                Настройки
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                <div>
+                  <p className="font-semibold">Уведомления</p>
+                  <p className="text-sm text-muted-foreground">Получать уведомления о новых скинах</p>
+                </div>
+                <Button variant="outline">Включено</Button>
+              </div>
+              <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                <div>
+                  <p className="font-semibold">Язык</p>
+                  <p className="text-sm text-muted-foreground">Русский</p>
+                </div>
+                <Button variant="outline">Изменить</Button>
+              </div>
+              <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                <div>
+                  <p className="font-semibold">Валюта</p>
+                  <p className="text-sm text-muted-foreground">Рубли (₽)</p>
+                </div>
+                <Button variant="outline">Изменить</Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl font-heading flex items-center gap-2">
+                <Icon name="LogIn" size={28} />
+                Вход через Steam
+              </CardTitle>
+              <CardDescription>Привяжи свой Steam аккаунт для авторизации</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold">Steam ID или логин</label>
+                <Input 
+                  placeholder="Введите ваш Steam ID"
+                  value={steamLogin}
+                  onChange={(e) => setSteamLogin(e.target.value)}
+                />
+              </div>
+              <Button className="w-full" size="lg">
+                <Icon name="LogIn" size={20} className="mr-2" />
+                Войти через Steam
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl font-heading flex items-center gap-2">
+                <Icon name="Wallet" size={28} />
+                Пополнение баланса
+              </CardTitle>
+              <CardDescription>Пополни баланс для покупки донатов</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="bg-primary/10 border border-primary/30 p-4 rounded-lg">
+                <p className="text-sm text-muted-foreground mb-1">Текущий баланс:</p>
+                <p className="text-3xl font-bold text-primary">1,250 ₽</p>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold">Сумма пополнения</label>
+                <Input 
+                  type="number"
+                  placeholder="Введите сумму (₽)"
+                  value={depositAmount}
+                  onChange={(e) => setDepositAmount(e.target.value)}
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <Button variant="outline" onClick={() => setDepositAmount('100')}>100 ₽</Button>
+                <Button variant="outline" onClick={() => setDepositAmount('500')}>500 ₽</Button>
+                <Button variant="outline" onClick={() => setDepositAmount('1000')}>1000 ₽</Button>
+              </div>
+              <Button className="w-full" size="lg" disabled={!depositAmount}>
+                <Icon name="CreditCard" size={20} className="mr-2" />
+                Пополнить баланс
+              </Button>
             </CardContent>
           </Card>
         </div>

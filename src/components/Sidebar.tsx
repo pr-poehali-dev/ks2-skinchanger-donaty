@@ -10,8 +10,10 @@ interface SidebarProps {
 const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
   const navItems = [
     { id: 'main', label: 'Главная', icon: 'Home' },
+    { id: 'servers', label: 'Серверы', icon: 'Server' },
     { id: 'skins', label: 'Скины', icon: 'Palette' },
     { id: 'donate', label: 'Донаты', icon: 'DollarSign' },
+    { id: 'weapons', label: 'Донат оружие', icon: 'Sword' },
     { id: 'profile', label: 'Профиль', icon: 'User' },
     { id: 'stats', label: 'Статистика', icon: 'BarChart3' },
     { id: 'settings', label: 'Настройки', icon: 'Settings' },
